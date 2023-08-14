@@ -62,9 +62,6 @@ app
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
   
   function goToInformation(req, res){
-	  console.log("Let's look at the informationKind !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-	  console.log(req.query.informationKind);
-	  //res.render('pages/add_place_of_interest_page'); 
 		res.render('pages/mainpage')	  
   }
   
