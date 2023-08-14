@@ -1,0 +1,242 @@
+
+.main-page-image{
+	max-width: 100%;
+}
+
+.main-page-flex-div{
+		margin: 1em;
+	}
+	
+#landpage-heading{
+	position: absolute;
+	margin-top: 2em;
+	margin-left: 2em;
+	color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  font-family: 'Bad Script', cursive;
+  font-family: 'Kaushan Script', cursive;
+  font-family: 'Pacifico', cursive;
+  font-family: 'Pinyon Script', cursive;
+}
+
+#flex-menu{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+@media only screen and (min-width: 100em) {
+		#flex-menu{
+		flex-direction: row;
+	}
+}
+
+@media only screen and (min-width: 50em) {
+	#login-link{
+		margin-left: 10em;
+	}
+}
+
+
+.header-menu-link:hover{
+	background-color: #e7e7e7;
+	z-index: 1;
+}
+
+/* the beginning of the styles for togglable dropdown menu link */
+
+.dropbtn {
+  color: #777;
+  padding: 15px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  background-color: #f8f8f8;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropbtn:hover {
+	background-color: #e7e7e7;
+}
+
+.dropdown-content a:hover {background-color: #e7e7e7;}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+/* the end of the styles for hoverable dropdown menu link */
+
+@media only screen and (min-width: 64em) {
+	a:hover {
+cursor: pointer;	
+}
+
+button {
+	color: black;
+}
+
+.loggedinmessage {
+	color: green;
+}
+
+.manageaccountlist {
+		list-style-type: none;
+		padding-left: 0px
+	}
+
+.list {
+	list-style-type: none;
+}
+
+.jumbotron {
+  /*background: #532F8C;*/
+  /*color: white;*/
+  padding-bottom: 80px; 
+  }
+  
+  .jumbotron legend {
+  color: black;
+  }
+  .jumbotron input, textarea {
+  color: black;
+  }
+  .container-fluid {
+	  display: flex;
+	  flex-direction: row;
+	  justify-content: space-between;
+  }
+  
+  nav.navbar .navbar-default {
+	  display: flex;
+	  flex-direction: row;
+	  justify-content: space-between;
+  }
+  
+  .jumbotron .btn-primary {
+    background: #845ac7;
+    border-color: #845ac7; }
+    .jumbotron .btn-primary:hover {
+      background: #7646c1; }
+  .jumbotron p {
+    /*color: #d9ccee;*/
+    /*max-width: 75%;*/
+    margin: 1em auto 2em;
+	text-align: justify;	
+}
+  .navbar + .jumbotron {
+    margin-top: -20px; }
+  .jumbotron .lang-logo {
+    display: block;
+    background: #B01302;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    border: 2px solid white; }
+    .jumbotron .lang-logo img {
+      max-width: 100%; }
+	  nav.navbar ul li.link {
+		  cursor: pointer;
+	  }
+	section.generalplaceofinterest {
+		display: flex;
+		flex-direction: row;
+		border: 2px solid white;
+		margin: 10px;
+		padding: 10px;
+	}
+	img.placeofinterestimage {
+		width: 600px;
+	}
+	
+	.main-page-flex-div{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		margin: 1em;
+	}
+	
+	.main-page-flex-left-div{
+		width: 60%;
+	}
+	
+	.main-page-flex-right-div{
+		width: 40%;
+		margin-left: 5em;
+	}
+}
+
+@media only screen and (max-width: 40em) {
+	
+	.main-page-flex-div{
+		flex-direction: column;
+	}
+	
+	.loggedinmessage {
+	color: green;
+}
+	
+	.manageaccountlist {
+		list-style-type: none;
+		margin-left: 0px
+	}
+	
+	.list {
+	list-style-type: none;
+}
+	
+	div.placeofinterestdetails {
+		overflow: hidden;
+	}
+	
+	img{
+		max-width: 100%;
+		max-height: auto;
+	}
+	
+	img.map-image {
+		max-width: 230px;
+		max-height: 170px;
+	}
+	
+	nav.navbar .navbar-default {
+	  flex-direction: column;
+	  justify-content: space-between;
+  }
+  
+  .container-fluid {
+	  flex-direction: column;
+	  justify-content: space-between;
+	  margin-left: 20px;
+  }
+  
+	.navbar-brand {
+		position: relative;
+	  width: 100%;
+	  
+  }
+  
+  .jumbotron p {
+	  font-size: 16px;
+	  text-align: justify;
+  }
+}

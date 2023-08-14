@@ -1,0 +1,30 @@
+<!-- views/pages/placesofinterest.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../partials/header2 %>
+</header>
+
+<main>
+    <div class="jumbotron">
+        <h1>Places Of Interest</h1>
+        <ul>
+    <% placesOfInterest.forEach(function(placeOfInterest) { %>
+        <li><%= placeOfInterest.placeofinterestname %> - <%= placeOfInterest.locationname %></li>
+    <% }); %>
+</ul>
+    </div>
+</main>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+
+</body>
+</html>
