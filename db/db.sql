@@ -1,4 +1,11 @@
 CREATE TABLE placesofinterest (
+placeOfInterestId SERIAL PRIMARY KEY,
+placeOfInterestName VARCHAR(100) NOT NULL,
+placeOfInterestDescription VARCHAR(355) NOT NULL,
+placeOfInterestImage VARCHAR(150),
+);
+
+/*CREATE TABLE placesofinterest (
 id SERIAL PRIMARY KEY,
 placeofinterestname VARCHAR(100) NOT NULL,
 placeofinterestdescription VARCHAR(355) NOT NULL,
@@ -9,7 +16,7 @@ locationmap VARCHAR(150) NOT NULL,
 openhours VARCHAR(150) NOT NULL,
 phonenumber VARCHAR(150) NOT NULL,
 website VARCHAR(150) NOT NULL
-);
+);*/
 
 CREATE TABLE locations (
 id SERIAL PRIMARY KEY,

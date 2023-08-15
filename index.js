@@ -6,14 +6,15 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 8080
 const app = express();
-const connectionString = process.env.DATABASE_URL;
+//const connectionString = process.env.DATABASE_URL;
+var db = require('./db/dbConnection');
 const { Pool } = require('pg')
 var myParser = require("body-parser");
-const pool = new Pool({connectionString: connectionString,
+/*const pool = new Pool({connectionString: connectionString,
   ssl: {
     rejectUnauthorized: false
 		}
-	});
+	});*/
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 var session = require('express-session');
@@ -662,10 +663,13 @@ req.session.email = email;
 	
 	// This runs the query, and then calls the provided anonymous callback function
 	// with the results.
-  pool.query('SELECT * FROM placesofinterest', function(err, result) {
+  /*db.query('SELECT * FROM placesofinterest', function(err, result) {
       if (err) {
         return console.error('error running query', err);
       }
+	  
+	  
+	  
 	  
 	  // Log this to the console for debugging purposes.
     console.log("Back from DB with result:");
@@ -680,7 +684,27 @@ req.session.email = email;
     });
 	
 	//callback(null, result.rows);
+    });*/
+	
+	
+		  db.sqlDb().query("SELECT * FROM placesofinterest", function (err, result, fields) {
+    if (err) throw err;
+    console.log(fields);
+	
+	// Log this to the console for debugging purposes.
+    console.log("Back from DB with result:");
+	console.log(result);
+	const placesOfInterest = result;
+	console.log("placesOfInterest variable:");
+	console.log(placesOfInterest);
+	
+	res.render('pages/placesofinterestlist', {
+        placesOfInterest: placesOfInterest
     });
+  });;
+  
+  
+  
   }
 	
 	

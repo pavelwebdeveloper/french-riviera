@@ -1,6 +1,18 @@
 
+.main-page-hero-image{
+	max-width: 100%;
+}
+
 .main-page-image{
 	max-width: 100%;
+	margin: 1em;
+}
+
+@media only screen and (min-width: 60em) {
+		.main-page-image{
+		max-width: 50%;
+		float: right;
+	}
 }
 
 .main-page-flex-div{
