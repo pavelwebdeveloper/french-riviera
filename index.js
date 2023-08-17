@@ -714,7 +714,7 @@ req.session.email = email;
 	
 	// This runs the query, and then calls the provided anonymous callback function
 	// with the results.
-  pool.query('SELECT * FROM placesofinterest WHERE id=' + req.query.id + '', function(err, result) {
+  db.sqlDb().query('SELECT * FROM placesofinterest WHERE placeOfInterestId=' + req.query.id + '', function(err, result) {
       if (err) {
         return console.error('error running query', err);
       }
@@ -722,11 +722,11 @@ req.session.email = email;
 	  // Log this to the console for debugging purposes.
     console.log("Back from DB with result:");
 	console.log(req.query.id);
-	console.log(result.rows);
-	const placeOfInterest = result.rows;
+	console.log(result);
+	const placeOfInterest = result;
 	console.log("placeOfInterest variable:");
 	console.log(placeOfInterest);
-	console.log(placeOfInterest[0].placeofinterestname);
+	console.log(placeOfInterest[0].placeOfInterestName);
 	
 	//res.status(200).json(placesOfInterest);
 	

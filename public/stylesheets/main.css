@@ -3,13 +3,13 @@
 	max-width: 100%;
 }
 
-.main-page-image{
+.float-image{
 	max-width: 100%;
 	margin: 1em;
 }
 
 @media only screen and (min-width: 60em) {
-		.main-page-image{
+		.float-image{
 		max-width: 50%;
 		float: right;
 	}
@@ -18,6 +18,12 @@
 .main-page-flex-div{
 		margin: 1em;
 	}
+	
+.placesOfInterestItemList{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
 	
 #landpage-heading{
 	position: absolute;
@@ -96,7 +102,79 @@
 
 /* the end of the styles for hoverable dropdown menu link */
 
-@media only screen and (min-width: 64em) {
+
+
+/*@media only screen and (max-width: 70em) {*/
+	
+	.main-page-flex-div{
+		flex-direction: column;
+	}
+	
+	.loggedinmessage {
+	color: green;
+}
+	
+	.manageaccountlist {
+		list-style-type: none;
+		margin-left: 0px
+	}
+	
+	.list {
+	list-style-type: none;
+}
+	
+	div.placeofinterestdetails {
+		overflow: hidden;
+	}
+	
+	img{
+		max-width: 100%;
+		max-height: auto;
+	}
+	
+	img.map-image {
+		max-width: 230px;
+		max-height: 170px;
+	}
+	
+	nav.navbar .navbar-default {
+	  flex-direction: column;
+	  justify-content: space-between;
+  }
+  
+  .container-fluid {
+	  flex-direction: column;
+	  justify-content: space-between;
+	  margin-left: 20px;
+  }
+  
+	.navbar-brand {
+		position: relative;
+	  width: 100%;
+	  
+  }
+  
+  .jumbotron p {
+	  font-size: 16px;
+	  text-align: justify;
+  }
+  
+  section.generalplaceofinterest {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		border: 2px solid white;
+		margin: 10px;
+		padding: 10px;
+	}
+	
+	.getDetailsButton{
+		max-width: 50%;
+	}
+/*}*/
+
+
+@media only screen and (min-width: 70em) {
 	a:hover {
 cursor: pointer;	
 }
@@ -170,11 +248,9 @@ button {
 		  cursor: pointer;
 	  }
 	section.generalplaceofinterest {
-		display: flex;
+		
 		flex-direction: row;
-		border: 2px solid white;
-		margin: 10px;
-		padding: 10px;
+		
 	}
 	img.placeofinterestimage {
 		width: 600px;
@@ -195,60 +271,12 @@ button {
 		width: 40%;
 		margin-left: 5em;
 	}
-}
-
-@media only screen and (max-width: 40em) {
 	
-	.main-page-flex-div{
-		flex-direction: column;
-	}
-	
-	.loggedinmessage {
-	color: green;
-}
-	
-	.manageaccountlist {
-		list-style-type: none;
-		margin-left: 0px
-	}
-	
-	.list {
-	list-style-type: none;
-}
-	
-	div.placeofinterestdetails {
-		overflow: hidden;
-	}
-	
-	img{
+	.getDetailsButton{
 		max-width: 100%;
-		max-height: auto;
 	}
 	
-	img.map-image {
-		max-width: 230px;
-		max-height: 170px;
+	.form-control-custom{
+		max-width: 50%;
 	}
-	
-	nav.navbar .navbar-default {
-	  flex-direction: column;
-	  justify-content: space-between;
-  }
-  
-  .container-fluid {
-	  flex-direction: column;
-	  justify-content: space-between;
-	  margin-left: 20px;
-  }
-  
-	.navbar-brand {
-		position: relative;
-	  width: 100%;
-	  
-  }
-  
-  .jumbotron p {
-	  font-size: 16px;
-	  text-align: justify;
-  }
 }
