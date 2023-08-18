@@ -8,6 +8,14 @@
 	margin: 1em;
 }
 
+.login-form-button{
+	width: 8em;
+}
+
+p{
+	overflow: hidden;
+}
+
 @media only screen and (min-width: 60em) {
 		.float-image{
 		max-width: 50%;
@@ -276,6 +284,10 @@ button {
 		max-width: 100%;
 	}
 	
+	
+}
+
+@media only screen and (min-width: 50em) {
 	.form-control-custom{
 		max-width: 50%;
 	}
