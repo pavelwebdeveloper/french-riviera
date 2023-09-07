@@ -688,7 +688,7 @@ req.session.email = email;
     });*/
 	
 	
-		  connection.query("SELECT * FROM placesofinterest_french_riviera", function (err, result, fields) {
+		  connection.query("SELECT * FROM placesofinterest", function (err, result, fields) {
     if (err) throw err;
     console.log(fields);
 	
@@ -715,7 +715,7 @@ req.session.email = email;
 	
 	// This runs the query, and then calls the provided anonymous callback function
 	// with the results.
-  connection.query('SELECT * FROM placesofinterest_french_riviera WHERE placeOfInterestId=' + req.query.id + '', function(err, result) {
+  connection.query('SELECT * FROM placesofinterest WHERE placeOfInterestId=' + req.query.id + '', function(err, result) {
       if (err) {
         return console.error('error running query', err);
       }
