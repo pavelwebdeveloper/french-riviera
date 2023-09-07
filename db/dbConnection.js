@@ -4,6 +4,7 @@
 	
 	// Config dotnev
 	require("dotenv").config();
+	
 
 	connection = mysql.createConnection({
 	  host: process.env.MYSQLHOST,
