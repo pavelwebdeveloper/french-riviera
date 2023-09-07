@@ -61,7 +61,7 @@ app
   .get('/placesofinterest', getPlacesOfInterest)
   .get('/placeofinterestdetails', getPlaceOfInterestDetails)
   
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+  .listen(PORT, "0.0.0.0", () => console.log(`Listening on ${ PORT }`))
   
   function goToInformation(req, res){
 		res.render('pages/mainpage')	  
