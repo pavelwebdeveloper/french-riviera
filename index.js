@@ -690,6 +690,7 @@ req.session.email = email;
 	
 		  connection.query("SELECT * FROM placesofinterest", function (err, result, fields) {
     if (err) throw err;
+	console.error(err.code);
     console.log(fields);
 	
 	// Log this to the console for debugging purposes.
