@@ -1,12 +1,15 @@
 exports.sqlDb = function () {
 
 	var mysql = require('mysql');
+	
+	// Config dotnev
+	require("dotenv").config();
 
 	var con = mysql.createConnection({
-	  host: "localhost",
-	  user: "root",
-	  password: "",
-	  database: "french-riviera"
+	  host: process.env.MYSQLHOST,
+	  user: process.env.MYSQLUSER,
+	  password: process.env.MYSQLPASSWORD,
+	  database: process.env.MYSQLDATABASE
 	});
 
 	con.connect(function(err) {
