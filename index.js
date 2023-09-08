@@ -11,11 +11,11 @@ var db = require('./db/dbConnection');
 const { connection } = require("./db/dbConnection");
 const { Pool } = require('pg')
 var myParser = require("body-parser");
-/*const pool = new Pool({connectionString: connectionString,
+const pool = new Pool({connectionString: connectionString,
   ssl: {
     rejectUnauthorized: false
 		}
-	});*/
+	});
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 var session = require('express-session');
