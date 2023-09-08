@@ -31,10 +31,6 @@ const mysql = require('mysql2');
 	  user: process.env.MYSQLUSER,
 	  password: process.env.MYSQLPASSWORD,
 	  database: process.env.MYSQLDATABASE
-	  /*host: "localhost",
-	  user: "root",
-	  password: "",
-	  database: "french-riviera"*/
 
 
 	});
