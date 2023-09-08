@@ -636,7 +636,7 @@ req.session.email = email;
         infomessage: infomessage
     });	
 	} else {
-  pool.query('INSERT INTO contacts_french_riviera (contactname, contactemail, message) VALUES ($1, $2, $3)', [obj.name, obj.email, obj.message], function(err, result) {
+  connection.query('INSERT INTO contacts_french_riviera (contactname, contactemail, message) VALUES ($1, $2, $3)', [obj.name, obj.email, obj.message], function(err, data) {
 	  
       if (err) {
         return console.error('error running query', err);
@@ -644,7 +644,7 @@ req.session.email = email;
 	  
 	  // Log this to the console for debugging purposes.
     console.log("Back from DB with result:");
-	console.log(result);
+	console.log(data);
 	console.log(`User added with ID: ${result.insertId}`);
 	console.log(result.rowCount);
 	if(result.rowCount === 1){
