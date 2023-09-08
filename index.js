@@ -637,7 +637,7 @@ req.session.email = email;
     });	
 	} else {
   //connection.query('INSERT INTO contacts (contactname, contactemail, message) VALUES ($1, $2, $3)', [obj.name, obj.email, obj.message], function(err, data) {
-	  connection.query('INSERT INTO contacts (contactname, contactemail, message) VALUES (' + obj.name + ', ' + obj.email + ', ' + obj.message + ')', function(err, data) {
+	  connection.query('INSERT INTO contacts (contactname, contactemail, message) VALUES (`' + obj.name + '`, `' + obj.email + '`, `' + obj.message + '`)', function(err, data) {
 	  
       if (err) {
         return console.error('error running query', err);
