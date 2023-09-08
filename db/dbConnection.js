@@ -1,6 +1,25 @@
+/*exports.sqlDb = function () {
+
+	var mysql = require('mysql');
+
+	var con = mysql.createConnection({
+	  host: "localhost",
+	  user: "root",
+	  password: "",
+	  database: "french-riviera"
+	});
+
+	con.connect(function(err) {
+	  if (err) throw err;
+	  console.log("Connected!");
+	});
+	
+	return con;
+
+};*/
 
 
-	const mysql = require('mysql');
+const mysql = require('mysql2');
 	
 	// Config dotnev
 	require("dotenv").config();
@@ -11,6 +30,11 @@
 	  user: process.env.MYSQLUSER,
 	  password: process.env.MYSQLPASSWORD,
 	  database: process.env.MYSQLDATABASE
+	  /*host: "localhost",
+	  user: "root",
+	  password: "",
+	  database: "french-riviera"*/
+
 
 	});
 
