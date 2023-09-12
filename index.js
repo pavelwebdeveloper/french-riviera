@@ -9,6 +9,7 @@ const app = express();
 const connectionString = process.env.DATABASE_URL;
 var db = require('./db/dbConnection');
 const { connection } = require("./db/dbConnection");
+console.log("Database was supposed to connect !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 const { Pool } = require('pg')
 var myParser = require("body-parser");
 const pool = new Pool({connectionString: connectionString,
