@@ -1,7 +1,6 @@
 // index.js for travel-in-ukraine-app
 // load the things we need
-console.log("Hi !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-/*
+
 require('dotenv').config();
 const express = require('express')
 const path = require('path')
