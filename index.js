@@ -1,6 +1,7 @@
 // index.js for travel-in-ukraine-app
 // load the things we need
-
+console.log("Hi !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+/*
 require('dotenv').config();
 const express = require('express')
 const path = require('path')
@@ -8,6 +9,7 @@ const PORT = process.env.PORT || 3000
 const app = express();
 const connectionString = process.env.DATABASE_URL;
 var db = require('./db/dbConnection');
+
 const { connection } = require("./db/dbConnection");
 console.log("Database was supposed to connect !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 const { Pool } = require('pg')
