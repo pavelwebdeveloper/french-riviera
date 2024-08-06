@@ -6,18 +6,25 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 3000
 const app = express();
-const connectionString = process.env.DATABASE_URL;
-var db = require('./db/dbConnection');
+//const connectionString = process.env.DATABASE_URL;
+//var db = require('./db/dbConnection');
 
-const { connection } = require("./db/dbConnection");
-console.log("Database was supposed to connect !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//const { connection } = require("./db/dbConnection");
+//console.log("Database was supposed to connect !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+
+// Connect to Back4App
+var Parse = require('parse/node');
+Parse.initialize("v3yxu9UrfPZ4bQrbZ0uZ64VEvVRBHEnzz0WJAY7J","dfISjDozh05179znZBdlKzvuN9RCkxQfIhDP68LV"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
+Parse.serverURL = 'https://parseapi.back4app.com/'
+
+
 const { Pool } = require('pg')
 var myParser = require("body-parser");
-const pool = new Pool({connectionString: connectionString,
-  ssl: {
-    rejectUnauthorized: false
-		}
-	});
+//const pool = new Pool({connectionString: connectionString,
+//  ssl: {
+//    rejectUnauthorized: false
+//		}
+//	});
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 var session = require('express-session');
@@ -81,9 +88,9 @@ app
 	  var infomessage = "";
 	 console.log("Getting places of interest from DB");
 	
-	// This runs the query, and then calls the provided anonymous callback function
-	// with the results.
-  pool.query('SELECT * FROM placesofinterest_french_riviera', function(err, result) {
+		// This runs the query, and then calls the provided anonymous callback function
+		// with the results.
+  		Parse.Query('SELECT * FROM placesofinterest_french_riviera', function(err, result) {
       if (err) {
         return console.error('error running query', err);
       }
@@ -121,7 +128,7 @@ app
         infomessage: infomessage
     });	
 	}
-	pool.query('INSERT INTO placesofinterest_french_riviera (placeofinterestname, placeofinterestdescription, locationname, locationid, priceforvisit, locationmap, openhours, phonenumber, website, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9 , $10)', [obj.placeofinterestname, obj.placeofinterestdescription, obj.locationname, obj.locationid, obj.priceforvisit, obj.locationmap, obj.openhours, obj.phonenumber, obj.website, obj.image], function(err, result) {
+	Parse.Query('INSERT INTO placesofinterest_french_riviera (placeofinterestname, placeofinterestdescription, locationname, locationid, priceforvisit, locationmap, openhours, phonenumber, website, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9 , $10)', [obj.placeofinterestname, obj.placeofinterestdescription, obj.locationname, obj.locationid, obj.priceforvisit, obj.locationmap, obj.openhours, obj.phonenumber, obj.website, obj.image], function(err, result) {
 	  
       if (err) {
         return console.error('error running query', err);
@@ -158,7 +165,7 @@ app
 	
 	// This runs the query, and then calls the provided anonymous callback function
 	// with the results.
-  pool.query('SELECT * FROM placesofinterest_french_riviera WHERE id=' + req.query.id + '', function(err, result) {
+	Parse.Query('SELECT * FROM placesofinterest_french_riviera WHERE id=' + req.query.id + '', function(err, result) {
       if (err) {
         return console.error('error running query', err);
       }
@@ -224,7 +231,7 @@ app
 	var emailForQuery = obj.email;
 
  
-	pool.query('UPDATE placesofinterest_french_riviera SET placeofinterestname = $2, placeofinterestdescription = $3, locationname = $4, locationid = $5, priceforvisit = $6, locationmap = $7, openhours = $8, phonenumber = $9, website = $10, image = $11  WHERE id = $1', [obj.id, obj.placeofinterestname, obj.placeofinterestdescription, obj.locationname, obj.locationid, obj.priceforvisit, obj.locationmap, obj.openhours, obj.phonenumber, obj.website, obj.image], function(err, result) {
+	Parse.Query('UPDATE placesofinterest_french_riviera SET placeofinterestname = $2, placeofinterestdescription = $3, locationname = $4, locationid = $5, priceforvisit = $6, locationmap = $7, openhours = $8, phonenumber = $9, website = $10, image = $11  WHERE id = $1', [obj.id, obj.placeofinterestname, obj.placeofinterestdescription, obj.locationname, obj.locationid, obj.priceforvisit, obj.locationmap, obj.openhours, obj.phonenumber, obj.website, obj.image], function(err, result) {
 	console.log("Result from DB with ");
 	console.log(result);
 
@@ -250,7 +257,7 @@ res.render('pages/manage_places_of_interest_page', {
 	
 	// This runs the query, and then calls the provided anonymous callback function
 	// with the results.
-  pool.query('SELECT * FROM placesofinterest_french_riviera WHERE id=' + req.query.id + '', function(err, result) {
+	Parse.Query('SELECT * FROM placesofinterest_french_riviera WHERE id=' + req.query.id + '', function(err, result) {
       if (err) {
         return console.error('error running query', err);
       }
@@ -286,7 +293,7 @@ res.render('pages/manage_places_of_interest_page', {
 	  var name = req.query.placeofinterestname;
 	  var infomessage = "";
 	console.log(req.query.id);
-	pool.query('DELETE FROM placesofinterest_french_riviera WHERE id=$1', [req.query.id], function(err, result) {
+	Parse.Query('DELETE FROM placesofinterest_french_riviera WHERE id=$1', [req.query.id], function(err, result) {
       if (err) {
         return console.error('error running query', err);
       }
@@ -357,7 +364,7 @@ res.render('pages/manage_places_of_interest_page', {
     });	
 	}
 	bcrypt.hash(password, saltRounds, function(err, hash) {
-  pool.query('INSERT INTO users_french_riviera (username, email, password) VALUES ($1, $2, $3)', [obj.name, obj.email, hash], function(err, result) {
+		Parse.Query('INSERT INTO users_french_riviera (username, email, password) VALUES ($1, $2, $3)', [obj.name, obj.email, hash], function(err, result) {
 	  
       if (err) {
         return console.error('error running query', err);
@@ -408,7 +415,7 @@ res.render('pages/manage_places_of_interest_page', {
 	
 	
 	
-	pool.query('SELECT * FROM users_french_riviera WHERE email = $1', [obj.email], function(err, result) {
+	Parse.Query('SELECT * FROM users_french_riviera WHERE email = $1', [obj.email], function(err, result) {
 		
 	  
 	  console.log("Result from DB");
@@ -477,7 +484,7 @@ function manageAccount(req, res){
 	var email = req.session.email;
 	var userlevel = req.session.userlevel;
 	var updateaccountresult = "";
-	pool.query('SELECT * FROM users_french_riviera WHERE id = $1',  [userid], function(err, result) {
+	Parse.Query('SELECT * FROM users_french_riviera WHERE id = $1',  [userid], function(err, result) {
 		if (err) {
         return console.error('error running select query', err);
       }
@@ -508,7 +515,7 @@ function getManageAccountForm(req, res){
 	var userid = req.session.userid;
 	var name = req.session.user;
 	var email = req.session.email;
-	pool.query('SELECT * FROM users_french_riviera WHERE id = $1',  [userid], function(err, result) {
+	Parse.Query('SELECT * FROM users_french_riviera WHERE id = $1',  [userid], function(err, result) {
 		if (err) {
         return console.error('error running select query', err);
       }
@@ -541,7 +548,7 @@ function updateAccountInfo(req, res){
 	var emailForQuery = obj.email;
 
  
-	pool.query('UPDATE users_french_riviera SET username = $1, email = $2 WHERE id = $3', [obj.name, obj.email, obj.userid], function(err, result) {
+	Parse.Query('UPDATE users_french_riviera SET username = $1, email = $2 WHERE id = $3', [obj.name, obj.email, obj.userid], function(err, result) {
 	console.log("Result from DB with ");
 	console.log(result);
 	if (err) {
@@ -551,7 +558,7 @@ function updateAccountInfo(req, res){
 		var updateaccountresult = "Sorry, update has failed. Please, try again";
 		res.render("pages/manageaccount");
 	} 
-pool.query('SELECT * FROM users WHERE id = $1',  [obj.userid], function(err, result) {
+	Parse.Query('SELECT * FROM users WHERE id = $1',  [obj.userid], function(err, result) {
 		if (err) {
         return console.error('error running select query', err);
       }
@@ -588,7 +595,7 @@ function updatePassword(req, res){
 	bcrypt.hash(password, saltRounds, function(err, hash) {
 		var id = obj.userid;
 		console.log(id);
-		pool.query('UPDATE users_french_riviera SET password = $1 WHERE id = $2', [hash, id], function(err, result) {
+		Parse.Query('UPDATE users_french_riviera SET password = $1 WHERE id = $2', [hash, id], function(err, result) {
 	console.log("Result from DB with ");
 	console.log(result);
 	if(result.rowCount === 0){
@@ -603,7 +610,7 @@ function updatePassword(req, res){
       }
 });
 
-pool.query('SELECT * FROM users_french_riviera WHERE id = $1',  [obj.userid], function(err, result) {
+Parse.Query('SELECT * FROM users_french_riviera WHERE id = $1',  [obj.userid], function(err, result) {
 		if (err) {
         return console.error('error running select query', err);
       }
