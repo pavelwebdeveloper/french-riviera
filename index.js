@@ -16,6 +16,7 @@ const app = express();
 var Parse = require('parse/node');
 Parse.initialize("v3yxu9UrfPZ4bQrbZ0uZ64VEvVRBHEnzz0WJAY7J","dfISjDozh05179znZBdlKzvuN9RCkxQfIhDP68LV"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
 Parse.serverURL = 'https://parseapi.back4app.com/'
+const query = new Parse.Query("placesofinterest_french_riviera");
 
 
 const { Pool } = require('pg')
@@ -699,7 +700,7 @@ req.session.email = email;
 	
 	
 		  //db.sqlDb().query("SELECT * FROM placesofinterest", function (err, result, fields) {
-			Parse.Query("SELECT * FROM placesofinterest", function (err, data) {
+			query.get("SELECT * FROM placesofinterest", function (err, data) {
     if (err) throw err;
     //console.log(data);
 	
