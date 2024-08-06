@@ -699,7 +699,7 @@ req.session.email = email;
 	
 	
 		  //db.sqlDb().query("SELECT * FROM placesofinterest", function (err, result, fields) {
-			  connection.query("SELECT * FROM placesofinterest", function (err, data) {
+			Parse.Query("SELECT * FROM placesofinterest", function (err, data) {
     if (err) throw err;
     //console.log(data);
 	
@@ -729,7 +729,7 @@ req.session.email = email;
 	// This runs the query, and then calls the provided anonymous callback function
 	// with the results.
   //db.sqlDb().query('SELECT * FROM placesofinterest WHERE placeOfInterestId=' + req.query.id + '', function(err, result) {
-	  connection.query('SELECT * FROM placesofinterest WHERE placeOfInterestId=' + req.query.id + '', function(err, data) {
+	Parse.Query('SELECT * FROM placesofinterest WHERE placeOfInterestId=' + req.query.id + '', function(err, data) {
       if (err) {
         return console.error('error running query', err);
       }
