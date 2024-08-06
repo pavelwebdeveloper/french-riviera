@@ -19,7 +19,6 @@ Parse.serverURL = 'https://parseapi.back4app.com/'
 const query = new Parse.Query("placesofinterest_french_riviera");
 
 
-
 const { Pool } = require('pg')
 var myParser = require("body-parser");
 //const pool = new Pool({connectionString: connectionString,
