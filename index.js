@@ -13,24 +13,9 @@ const app = express();
 //console.log("Database was supposed to connect !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
 // Connect to Back4App
-/*var Parse = require('parse/node');
+var Parse = require('parse/node');
 Parse.initialize("v3yxu9UrfPZ4bQrbZ0uZ64VEvVRBHEnzz0WJAY7J","dfISjDozh05179znZBdlKzvuN9RCkxQfIhDP68LV"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
-Parse.serverURL = 'https://parseapi.back4app.com/classes/'*/
-
-let Parse = require('parse/node');
-let LiveQueryClient = Parse.LiveQueryClient;
-let client = new LiveQueryClient({
-  applicationId: 'v3yxu9UrfPZ4bQrbZ0uZ64VEvVRBHEnzz0WJAY7J',
-  serverURL: 'https://parseapi.back4app.com/',
-  javascriptKey: '',
-  masterKey: ''
-});
-
-client.on('open', () => {
-	console.log('connection opened');
-  });
-
-
+Parse.serverURL = 'https://parseapi.back4app.com:1337/parse'
 
 
 
