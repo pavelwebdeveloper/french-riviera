@@ -56,7 +56,7 @@ app
   .get('/logout', logOut)
   .post('/signup', signUp)
   //.get('/placesofinterestlist', getPlacesOfInterest)
-  .get('/placesofinterest_french_riviera', saveNewPerson)
+  .get('/placesofinterest_french_riviera', retrievePerson)
   .get('/manageaccount', manageAccount)
   .put('/updateaccountinfo', updateAccountInfo)
   .post('/updatepassword', updatePassword)
@@ -807,7 +807,7 @@ req.session.email = email;
 	     const query = new Parse.Query("Person");
 	  
 	     try {
-	       const person = await query.get("mhPFDlCahj");
+	       const person = await query.get("jgWctehbw7");
 	       const name = person.get("name");
 	       const age = person.get("age");
 	  
