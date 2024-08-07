@@ -670,10 +670,10 @@ req.session.email = email;
 	}
   }
   
-  function getPlacesOfInterest(req, res){
+  async function getPlacesOfInterest(req, res){
 
 	const query = new Parse.Query("placesofinterest_french_riviera");
-	
+
 	  console.log("Getting places of interest from DB");
 	
 	// This runs the query, and then calls the provided anonymous callback function
@@ -703,7 +703,7 @@ req.session.email = email;
 	
 	
 		  //db.sqlDb().query("SELECT * FROM placesofinterest", function (err, result, fields) {
-			query.get(function (err, data) {
+			await query.get(function (err, data) {
     //if (err) throw err;
     //console.log(data);
 	
