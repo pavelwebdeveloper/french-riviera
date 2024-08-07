@@ -16,7 +16,7 @@ const app = express();
 var Parse = require('parse/node');
 Parse.initialize("v3yxu9UrfPZ4bQrbZ0uZ64VEvVRBHEnzz0WJAY7J","dfISjDozh05179znZBdlKzvuN9RCkxQfIhDP68LV"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
 Parse.serverURL = 'https://parseapi.back4app.com/'
-const query = new Parse.Query("placesofinterest_french_riviera");
+
 
 
 const { Pool } = require('pg')
@@ -671,6 +671,9 @@ req.session.email = email;
   }
   
   function getPlacesOfInterest(req, res){
+
+	const query = new Parse.Query("placesofinterest_french_riviera");
+	
 	  console.log("Getting places of interest from DB");
 	
 	// This runs the query, and then calls the provided anonymous callback function
