@@ -23,6 +23,7 @@
     "pg": "^8.12.0"
   },
   "devDependencies": {
+    "@types/parse": "^3.0.9",
     "request": "^2.81.0",
     "tape": "^4.7.0"
   },
