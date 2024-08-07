@@ -670,7 +670,7 @@ req.session.email = email;
 	}
   }
   
-  function getPlacesOfInterest(req, res){
+  async function getPlacesOfInterest(req, res){
 	  console.log("Getting places of interest from DB");
 	
 	// This runs the query, and then calls the provided anonymous callback function
@@ -700,24 +700,37 @@ req.session.email = email;
 	
 	
 		  //db.sqlDb().query("SELECT * FROM placesofinterest", function (err, result, fields) {
-			query.get("SELECT * FROM placesofinterest", function (err, data) {
-    if (err) throw err;
+			//query.get("SELECT * FROM placesofinterest", function (err, data) {
+    //if (err) throw err;
     //console.log(data);
 	
 	// Log this to the console for debugging purposes.
-    console.log("Back from DB with result:");
+    //console.log("Back from DB with result:");
 	//console.log(result);
 	//const placesOfInterest = result;
-	console.log(data);
-	const placesOfInterest = data;
-	console.log("placesOfInterest variable:");
-	console.log(placesOfInterest);
+	//console.log(data);
+	//const placesOfInterest = data;
+	//console.log("placesOfInterest variable:");
+	//console.log(placesOfInterest);
 	
-	res.render('pages/placesofinterestlist', {
+	/*res.render('pages/placesofinterestlist', {
         placesOfInterest: placesOfInterest
-    });
-  });;
-  
+    });*/
+  //});;
+  try {
+	       //Query the soccerPlayers object using the objectId you've copied
+	       const player = await query.get();
+	       //access each object property using the get method
+	       /*const name = player.get("namePlayer");
+	       const email = player.get("emailContact");
+	       const birth = player.get("yearOfBirth");
+	       const attributes = player.get("attributes");
+	
+	       alert(`Name: ${name}, email: ${email}, birth: ${birth}, attributes: ${attributes}`);
+	       } catch (error) {
+	       alert(`Failed to retrieve the object, with error code: ${error.message}`);
+	       }*/
+	     
   
   
   }
