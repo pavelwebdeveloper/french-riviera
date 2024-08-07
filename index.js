@@ -728,8 +728,8 @@ req.session.email = email;
 	
 	       alert(`Name: ${name}, email: ${email}, birth: ${birth}, attributes: ${attributes}`);
 	       } catch (error) {
-	       alert(`Failed to retrieve the object, with error code: ${error.message}`);
-	       }*/
+	       alert(`Failed to retrieve the object, with error code: ${error.message}`);*/
+	       }
 	     
   
   
