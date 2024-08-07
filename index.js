@@ -806,7 +806,7 @@ req.session.email = email;
 	   async function retrievePerson() {
 	     const query = new Parse.Query("Person");
 	  
-	     try {
+	     /*try {
 	       const person = await query.get("jgWctehbw7");
 	       const name = person.get("name");
 	       const age = person.get("age");
@@ -814,5 +814,10 @@ req.session.email = email;
 	       alert(`Name: ${name} age: ${age}`);
      		} catch (error) {
 	       alert(`Failed to retrieve the object, with error code: ${error.message}`);
-	     }
+	     }*/
+		 await query.get("jgWctehbw7").then(function(person){
+			console.log('Person retrieved successfully with name: ' + person.get("name") + ' and age: ' + person.get("age"));
+	  }).catch(function(error){
+		   console.log('Error: ' + error.message);
+	  });
 	  } 
