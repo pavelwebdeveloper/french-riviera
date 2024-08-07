@@ -15,7 +15,26 @@ const app = express();
 // Connect to Back4App
 var Parse = require('parse/node');
 Parse.initialize("v3yxu9UrfPZ4bQrbZ0uZ64VEvVRBHEnzz0WJAY7J","dfISjDozh05179znZBdlKzvuN9RCkxQfIhDP68LV"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
-Parse.serverURL = 'https://parseapi.back4app.com:1337/parse'
+Parse.serverURL = 'https://parseapi.back4app.com/'
+
+var Pet = Parse.Object.extend("Pet");
+
+var textName = "myName";
+var textAge = 10;
+
+create();
+
+   function create() {
+       mypet = new Pet();
+       mypet.set("name", textName);
+       mypet.set("agePet", textAge);
+
+       mypet.save().then(function(pet){
+            console.log('Pet created successful with name: ' + pet.get("name") + ' and age: ' + pet.get("agePet"));
+      }).catch(function(error){
+           console.log('Error: ' + error.message);
+      });
+  }
 
 
 
