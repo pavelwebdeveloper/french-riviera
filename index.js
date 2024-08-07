@@ -670,7 +670,7 @@ req.session.email = email;
 	}
   }
   
-  async function getPlacesOfInterest(req, res){
+  function getPlacesOfInterest(req, res){
 	  console.log("Getting places of interest from DB");
 	
 	// This runs the query, and then calls the provided anonymous callback function
@@ -700,7 +700,7 @@ req.session.email = email;
 	
 	
 		  //db.sqlDb().query("SELECT * FROM placesofinterest", function (err, result, fields) {
-			//query.get("SELECT * FROM placesofinterest", function (err, data) {
+			query.get(function (err, data) {
     //if (err) throw err;
     //console.log(data);
 	
@@ -716,10 +716,10 @@ req.session.email = email;
 	/*res.render('pages/placesofinterestlist', {
         placesOfInterest: placesOfInterest
     });*/
-  //});;
-  try {
+  });
+  //try {
 	       //Query the soccerPlayers object using the objectId you've copied
-	       const player = await query.get();
+	       //query.get();
 	       //access each object property using the get method
 	       /*const name = player.get("namePlayer");
 	       const email = player.get("emailContact");
@@ -729,7 +729,7 @@ req.session.email = email;
 	       alert(`Name: ${name}, email: ${email}, birth: ${birth}, attributes: ${attributes}`);
 	       } catch (error) {
 	       alert(`Failed to retrieve the object, with error code: ${error.message}`);*/
-	       }
+	       //}
 	     
   
   
