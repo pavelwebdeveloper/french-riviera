@@ -9,7 +9,8 @@ function getPlacesOfInterest() {
       document.getElementById("change1").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "/placesofinterestlist", true);
+  //xhttp.open("GET", "/placesofinterestlist", true);
+  xhttp.open("GET", "/placesofinterest_french_riviera", true);
   xhttp.send();
 }
 
