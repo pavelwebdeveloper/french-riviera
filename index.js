@@ -127,13 +127,13 @@ app
 		console.log("Add Place of Interest Info:");
 		console.log(req.body.jsonstring);
 		var obj = JSON.parse(req.body.jsonstring);
-		/*if(!obj.placeofinterestname || !obj.placeofinterestdescription || !obj.locationname || !obj.locationid || !obj.priceforvisit || !obj.locationmap || 
-		!obj.openhours || !obj.phonenumber || !obj.website || !obj.image) {
+		if(!obj.placeofinterestname || !obj.placeofinterestdescription || !obj.image) {
 			infomessage = "Please, provide all the required information.";
 				res.render('pages/add_place_of_interest_page', {
 				infomessage: infomessage
 			});	
 		}
+		/*
 		Parse.Query('INSERT INTO placesofinterest_french_riviera (placeofinterestname, placeofinterestdescription, locationname, locationid, priceforvisit, locationmap, openhours, phonenumber, website, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9 , $10)', [obj.placeofinterestname, obj.placeofinterestdescription, obj.locationname, obj.locationid, obj.priceforvisit, obj.locationmap, obj.openhours, obj.phonenumber, obj.website, obj.image], function(err, result) {
 	  
 		if (err) {
@@ -165,16 +165,17 @@ app
 		});*/
 
 
-		/*const aperson = new Parse.Object("Place_of_interest");
+		const placeOfInterest = new Parse.Object("Place_of_interest");
 
-		aperson.set("name", "Ivan Code");
-		aperson.set("age", 27);
+		placeOfInterest.set("name", obj.placeofinterestname);
+		placeOfInterest.set("description", obj.placeofinterestdescription);
+		placeOfInterest.set("image", obj.image);
 
-		aperson.save().then(function(person){
-			console.log('Pet created successful with name: ' + person.get("name") + ' and age: ' + person.get("age"));
+		placeOfInterest.save().then(function(place_of_interest){
+			console.log('Pet created successful with name: ' + place_of_interest.get("name") + ' and description: ' + place_of_interest.get("description"));
 		}).catch(function(error){
 			console.log('Error: ' + error.message);
-		});*/
+		});
   }
 
   //Saving your First Data Object on Back4App
