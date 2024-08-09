@@ -56,17 +56,9 @@ function addPlaceOfInterest(){
 var xhttp = new XMLHttpRequest();
 var placeofinterestname = document.getElementById("placeOfInterestName").value;
   var placeofinterestdescription = document.getElementById("placeOfInterestDescription").value;
-  var locationname = document.getElementById("placeOfInterestLocationName").value;
-  var locationid = document.getElementById("placeOfInterestLocationId").value;
-  var priceforvisit = document.getElementById("placeOfInterestPriceForVisit").value;
-  var locationmap = document.getElementById("placeOfInterestLocationMap").value;
-  var openhours = document.getElementById("placeOfInterestOpenHours").value;
-  var phonenumber = document.getElementById("placeOfInterestPhoneNumber").value;
-  var website = document.getElementById("placeOfInterestWebsite").value;
   var image = document.getElementById("placeOfInterestImage").value;
 	var myobj = { "placeofinterestname":placeofinterestname,"placeofinterestdescription":placeofinterestdescription, 
-	"locationname":locationname,"locationid":locationid, "priceforvisit":priceforvisit,"locationmap":locationmap, 
-	"openhours":openhours,"phonenumber":phonenumber, "website":website,"image":image};
+	"image":image};
 var jsonstring = JSON.stringify( myobj );
 var postjson = "jsonstring="+encodeURIComponent( jsonstring );
   xhttp.onreadystatechange = function() {

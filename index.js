@@ -56,7 +56,7 @@ app
   .get('/logout', logOut)
   .post('/signup', signUp)
   //.get('/placesofinterestlist', getPlacesOfInterest)
-  .get('/placesofinterest_french_riviera', retrievePerson)
+  .get('/placesofinterest_french_riviera', getPlacesOfInterest)
   .get('/manageaccount', manageAccount)
   .put('/updateaccountinfo', updateAccountInfo)
   .post('/updatepassword', updatePassword)
