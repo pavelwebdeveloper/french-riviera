@@ -120,7 +120,7 @@ app
 	res.render('pages/add_place_of_interest_page');  
   }
   
-  function addPlaceOfInterest(req, res){
+  async function addPlaceOfInterest(req, res){
 
 		
 	  	var infomessage = "";
