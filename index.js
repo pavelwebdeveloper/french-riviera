@@ -178,26 +178,6 @@ app
 		});
   }
 
-  //Saving your First Data Object on Back4App
-  async function saveNewPerson() {
-	const aperson = new Parse.Object("Person");
-
-	aperson.set("name", "Ivan Code");
-	aperson.set("age", 27);
-	/*try {
-	  let result = await aperson.save()
-	  alert('New object created with objectId: ' + result.id);
-	 } catch(error) {
-		 alert('Failed to create new object, with error code: ' + error.message);
-	 }*/
-
-	 aperson.save().then(function(person){
-				   console.log('Pet created successful with name: ' + person.get("name") + ' and age: ' + person.get("age"));
-			 }).catch(function(error){
-				  console.log('Error: ' + error.message);
-			 });
-   } 
-  
   function getUpdatePlaceOfInterestPage(req, res){
 	  console.log("Getting place of interest from DB");
 	
