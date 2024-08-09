@@ -121,48 +121,81 @@ app
   }
   
   function addPlaceOfInterest(req, res){
-	  var infomessage = "";
-	console.log("Add Place of Interest Info:");
-	console.log(req.body.jsonstring);
-	var obj = JSON.parse(req.body.jsonstring);
-	if(!obj.placeofinterestname || !obj.placeofinterestdescription || !obj.locationname || !obj.locationid || !obj.priceforvisit || !obj.locationmap || 
-	!obj.openhours || !obj.phonenumber || !obj.website || !obj.image) {
-	infomessage = "Please, provide all the required information.";
-		res.render('pages/add_place_of_interest_page', {
-        infomessage: infomessage
-    });	
-	}
-	Parse.Query('INSERT INTO placesofinterest_french_riviera (placeofinterestname, placeofinterestdescription, locationname, locationid, priceforvisit, locationmap, openhours, phonenumber, website, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9 , $10)', [obj.placeofinterestname, obj.placeofinterestdescription, obj.locationname, obj.locationid, obj.priceforvisit, obj.locationmap, obj.openhours, obj.phonenumber, obj.website, obj.image], function(err, result) {
+
+		
+	  	var infomessage = "";
+		console.log("Add Place of Interest Info:");
+		console.log(req.body.jsonstring);
+		var obj = JSON.parse(req.body.jsonstring);
+		/*if(!obj.placeofinterestname || !obj.placeofinterestdescription || !obj.locationname || !obj.locationid || !obj.priceforvisit || !obj.locationmap || 
+		!obj.openhours || !obj.phonenumber || !obj.website || !obj.image) {
+			infomessage = "Please, provide all the required information.";
+				res.render('pages/add_place_of_interest_page', {
+				infomessage: infomessage
+			});	
+		}
+		Parse.Query('INSERT INTO placesofinterest_french_riviera (placeofinterestname, placeofinterestdescription, locationname, locationid, priceforvisit, locationmap, openhours, phonenumber, website, image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9 , $10)', [obj.placeofinterestname, obj.placeofinterestdescription, obj.locationname, obj.locationid, obj.priceforvisit, obj.locationmap, obj.openhours, obj.phonenumber, obj.website, obj.image], function(err, result) {
 	  
-      if (err) {
-        return console.error('error running query', err);
-      }
+		if (err) {
+			return console.error('error running query', err);
+		}
 	  
-	  // Log this to the console for debugging purposes.
-    console.log("Back from DB with result of signup:");
-	console.log(result);
-	console.log(result.rowCount);
-	console.log(`User added with ID: ${result.insertId}`);
-	
-	//res.sendStatus(200);
-	
-	
-	if(result.rowCount){
-		infomessage = "You have successfully added " + obj.placeofinterestname + " Place of Interest.";
-	} else {
-		infomessage = "Sorry. Adding the new Place of Interest has failed. Please, try again.";
-		res.render('pages/add_place_of_interest_page', {
-        infomessage: infomessage
-    });
-	}
-	
-	res.render('pages/manage_places_of_interest_page', {
-        infomessage: infomessage
-    });
-	
-	//callback(null, result.rows);
-    });
+	  	// Log this to the console for debugging purposes.
+		console.log("Back from DB with result of signup:");
+		console.log(result);
+		console.log(result.rowCount);
+		console.log(`User added with ID: ${result.insertId}`);
+		
+		//res.sendStatus(200);
+		
+		if(result.rowCount){
+			infomessage = "You have successfully added " + obj.placeofinterestname + " Place of Interest.";
+		} else {
+			infomessage = "Sorry. Adding the new Place of Interest has failed. Please, try again.";
+			res.render('pages/add_place_of_interest_page', {
+			infomessage: infomessage
+		});
+		}
+		
+		res.render('pages/manage_places_of_interest_page', {
+			infomessage: infomessage
+		});
+		
+		//callback(null, result.rows);
+		});*/
+
+
+		/*const aperson = new Parse.Object("Place_of_interest");
+
+		aperson.set("name", "Ivan Code");
+		aperson.set("age", 27);
+
+		aperson.save().then(function(person){
+			console.log('Pet created successful with name: ' + person.get("name") + ' and age: ' + person.get("age"));
+		}).catch(function(error){
+			console.log('Error: ' + error.message);
+		});*/
   }
+
+  //Saving your First Data Object on Back4App
+  async function saveNewPerson() {
+	const aperson = new Parse.Object("Person");
+
+	aperson.set("name", "Ivan Code");
+	aperson.set("age", 27);
+	/*try {
+	  let result = await aperson.save()
+	  alert('New object created with objectId: ' + result.id);
+	 } catch(error) {
+		 alert('Failed to create new object, with error code: ' + error.message);
+	 }*/
+
+	 aperson.save().then(function(person){
+				   console.log('Pet created successful with name: ' + person.get("name") + ' and age: ' + person.get("age"));
+			 }).catch(function(error){
+				  console.log('Error: ' + error.message);
+			 });
+   } 
   
   function getUpdatePlaceOfInterestPage(req, res){
 	  console.log("Getting place of interest from DB");
@@ -782,25 +815,7 @@ req.session.email = email;
   // cd cs313-node/travel_in_ukraine_app
 
 
-  //Saving your First Data Object on Back4App
-   async function saveNewPerson() {
-	     const aperson = new Parse.Object("Person");
-	
-	     aperson.set("name", "Ivan Code");
-	     aperson.set("age", 27);
-	     /*try {
-	       let result = await aperson.save()
-	       alert('New object created with objectId: ' + result.id);
-	      } catch(error) {
-	          alert('Failed to create new object, with error code: ' + error.message);
-	      }*/
-
-		  aperson.save().then(function(person){
-			            console.log('Pet created successful with name: ' + person.get("name") + ' and age: ' + person.get("age"));
-			      }).catch(function(error){
-			           console.log('Error: ' + error.message);
-			      });
-	    } 
+  
 	
 	   //Reading your First Data Object from Back4App
 	   async function retrievePerson() {
