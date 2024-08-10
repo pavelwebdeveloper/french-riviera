@@ -689,70 +689,70 @@ req.session.email = email;
   
   async function getPlacesOfInterest(req, res){
 
-	const query = new Parse.Query("placesofinterest_french_riviera");
-
 	  console.log("Getting places of interest from DB");
 	
-	// This runs the query, and then calls the provided anonymous callback function
-	// with the results.
-  /*db.query('SELECT * FROM placesofinterest', function(err, result) {
+		// This runs the query, and then calls the provided anonymous callback function
+		// with the results.
+		/*db.query('SELECT * FROM placesofinterest', function(err, result) {
       if (err) {
         return console.error('error running query', err);
       }
 	  
-	  
-	  
-	  
 	  // Log this to the console for debugging purposes.
-    console.log("Back from DB with result:");
-	console.log(result.rows);
-	const placesOfInterest = result.rows;
-	console.log("placesOfInterest variable:");
-	console.log(placesOfInterest);
-	//res.status(200).json(placesOfInterest);
-	
-	res.render('pages/placesofinterestlist', {
-        placesOfInterest: placesOfInterest
-    });
-	
-	//callback(null, result.rows);
-    });*/
+		console.log("Back from DB with result:");
+		console.log(result.rows);
+		const placesOfInterest = result.rows;
+		console.log("placesOfInterest variable:");
+		console.log(placesOfInterest);
+		//res.status(200).json(placesOfInterest);
+		
+		res.render('pages/placesofinterestlist', {
+			placesOfInterest: placesOfInterest
+		});
+		
+		//callback(null, result.rows);
+		});*/
 	
 	
 		  //db.sqlDb().query("SELECT * FROM placesofinterest", function (err, result, fields) {
-			await query.get(function (err, data) {
-    //if (err) throw err;
-    //console.log(data);
-	
-	// Log this to the console for debugging purposes.
-    //console.log("Back from DB with result:");
-	//console.log(result);
-	//const placesOfInterest = result;
-	//console.log(data);
-	//const placesOfInterest = data;
-	//console.log("placesOfInterest variable:");
-	//console.log(placesOfInterest);
-	
-	/*res.render('pages/placesofinterestlist', {
-        placesOfInterest: placesOfInterest
-    });*/
-  });
-  //try {
-	       //Query the soccerPlayers object using the objectId you've copied
-	       //query.get();
-	       //access each object property using the get method
-	       /*const name = player.get("namePlayer");
-	       const email = player.get("emailContact");
-	       const birth = player.get("yearOfBirth");
-	       const attributes = player.get("attributes");
-	
-	       alert(`Name: ${name}, email: ${email}, birth: ${birth}, attributes: ${attributes}`);
-	       } catch (error) {
-	       alert(`Failed to retrieve the object, with error code: ${error.message}`);*/
-	       //}
-	     
-  
-  
+
+			//if (err) throw err;
+			//console.log(data);
+			
+			// Log this to the console for debugging purposes.
+			//console.log("Back from DB with result:");
+			//console.log(result);
+			//const placesOfInterest = result;
+			//console.log(data);
+			//const placesOfInterest = data;
+			//console.log("placesOfInterest variable:");
+			//console.log(placesOfInterest);
+			
+			/*res.render('pages/placesofinterestlist', {
+				placesOfInterest: placesOfInterest
+			});*/
+		//});
+		//try {
+				//Query the soccerPlayers object using the objectId you've copied
+				//query.get();
+				//access each object property using the get method
+				/*const name = player.get("namePlayer");
+				const email = player.get("emailContact");
+				const birth = player.get("yearOfBirth");
+				const attributes = player.get("attributes");
+			
+				alert(`Name: ${name}, email: ${email}, birth: ${birth}, attributes: ${attributes}`);
+				} catch (error) {
+				alert(`Failed to retrieve the object, with error code: ${error.message}`);*/
+				//}
+
+				const query = new Parse.Query("Place_of_interest");
+
+				await query.get("BKR9IyCiaz").then(function(place_of_interest){
+					console.log('Place of interest retrieved successfully with name: ' + place_of_interest.get("name") + ' and description: ' + place_of_interest.get("description"));
+			  }).catch(function(error){
+				   console.log('Error: ' + error.message);
+			  });
   }
 	
 	
