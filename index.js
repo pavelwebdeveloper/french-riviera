@@ -758,12 +758,22 @@ req.session.email = email;
 
 			  query.descending('name');
 
-				await query.find().then(function(places_of_interest){
+			  try {
+					      let places_of_interest = await query.find();
+					      setQueryResults(places_of_interest);
+					      return true;
+					    } catch (error) {
+					      // Error can be caused by lack of Internet connection
+					      Alert.alert('Error!', error.message);
+					      return false;
+					    }
+
+				/*await query.find().then(function(places_of_interest){
 					
 					console.log(setQueryResults(places_of_interest));
 			  }).catch(function(error){
 				   console.log('Error: ' + error.message);
-			  });
+			  });*/
   }
 	
 	
