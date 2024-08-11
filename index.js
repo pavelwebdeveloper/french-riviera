@@ -760,7 +760,7 @@ req.session.email = email;
 
 			  
 
-				await query.find('name').then(function(places_of_interest){
+				await query.getAll().then(function(places_of_interest){
 					
 					//console.log(setQueryResults(places_of_interest));
 					console.log(places_of_interest);
