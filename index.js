@@ -687,7 +687,7 @@ req.session.email = email;
 	}
   }
   
-  async function getPlacesOfInterest(req, res){
+  async function getPlacesOfInterest(){
 
 	  console.log("Getting places of interest from DB");
 	
