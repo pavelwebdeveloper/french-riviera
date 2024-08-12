@@ -760,11 +760,16 @@ req.session.email = email;
 
 			  let objectType = "place_of_interest";
 
+			  try {
 			  const places_of_interest = await places_of_interest.find();
 			  places_of_interest.equalTo("place_of_interest", objectType);
       for (let place_of_interest of places_of_interest) {
         console.log(place_of_interest);
       }
+	} catch (error) {
+		      console.log(`Failed to query object: ${error.message}`);
+		      return false;
+		    }
 			  
 
 				/*await query.get("BKR9IyCiaz").then(function(place_of_interest){
