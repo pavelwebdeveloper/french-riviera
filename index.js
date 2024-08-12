@@ -758,9 +758,9 @@ req.session.email = email;
 
 			  //query.descending('name');
 
-			  
+			  let objectType = "place_of_interest";
 
-			  let places_of_interest = await places_of_interest.find();
+			  const places_of_interest = await places_of_interest.find();
 			  places_of_interest.equalTo("place_of_interest", objectType);
       for (let place_of_interest of places_of_interest) {
         console.log(place_of_interest);
