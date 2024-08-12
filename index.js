@@ -771,16 +771,20 @@ req.session.email = email;
 
 			  
 
-				await query.find({}).then(function(places_of_interest){
+				/*await query.find({}).then(function(places_of_interest){
 					
 					//console.log(setQueryResults(places_of_interest));
 					console.log(places_of_interest);
 
 			  }).catch(function(error){
 				   console.log('Error: ' + error.message);
-			  });
+			  });*/
 
-			  
+			  await query.find({}).toArray(function(err, result) {
+				if (err) throw err;
+				console.log(result);
+				
+			  });
   }
 	
 	
