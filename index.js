@@ -761,6 +761,7 @@ req.session.email = email;
 			  
 
 			  let places_of_interest = await places_of_interest.find();
+			  places_of_interest.equalTo("place_of_interest", objectType);
       for (let place_of_interest of places_of_interest) {
         console.log(place_of_interest);
       }
