@@ -746,15 +746,15 @@ req.session.email = email;
 				alert(`Failed to retrieve the object, with error code: ${error.message}`);*/
 				//}
 
-				/*const query = new Parse.Query("Place_of_interest");
+				const query = new Parse.Query("Place_of_interest");
 
 				await query.get("BKR9IyCiaz").then(function(place_of_interest){
 					console.log('Place of interest retrieved successfully with name: ' + place_of_interest.get("name") + ' and description: ' + place_of_interest.get("description"));
 			  }).catch(function(error){
 				   console.log('Error: ' + error.message);
-			  });*/
+			  });
 
-			  const query = new Parse.Query("Place_of_interest");
+			  //const query = new Parse.Query("Place_of_interest");
 
 			  //query.descending('name');
 
@@ -762,14 +762,14 @@ req.session.email = email;
 
 			  
 
-				await query.get("BKR9IyCiaz").then(function(place_of_interest){
+				/*await query.get("BKR9IyCiaz").then(function(place_of_interest){
 					
 					//console.log(setQueryResults(places_of_interest));
 					console.log(place_of_interest);
 
 			  }).catch(function(error){
 				   console.log('Error: ' + error.message);
-			  });
+			  });*/
 
 			  
   }
