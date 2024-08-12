@@ -754,16 +754,16 @@ req.session.email = email;
 				   console.log('Error: ' + error.message);
 			  });*/
 
-			  //const query = new Parse.Query("Place_of_interest");
+			  const places_of_interest = new Parse.Query("Place_of_interest");
 
 			  //query.descending('name');
 
 			  let objectType = "place_of_interest";
 
 			  try {
-			  const places_of_interest = await places_of_interest.find();
+			  const places_of_interest_list = await places_of_interest.find();
 			  places_of_interest.equalTo("place_of_interest", objectType);
-      for (let place_of_interest of places_of_interest) {
+      for (let place_of_interest of places_of_interest_list) {
         console.log(place_of_interest);
       }
 	} catch (error) {
