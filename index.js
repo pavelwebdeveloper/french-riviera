@@ -771,7 +771,7 @@ req.session.email = email;
 
 					
 						res.render('pages/placesofinterestlist', {
-							placesOfInterest: places_of_interest_list
+							places_of_interest_list: placesOfInterest
 						});
 				
 				} catch (error) {
