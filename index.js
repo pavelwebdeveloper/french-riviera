@@ -764,7 +764,7 @@ req.session.email = email;
 			  const places_of_interest_list = await places_of_interest.find();
 			  places_of_interest.equalTo("place_of_interest", objectType);
       for (let place_of_interest of places_of_interest_list) {
-        console.log(place_of_interest.name);
+        console.log(place_of_interest.get("name"));
       }
 	} catch (error) {
 		      console.log(`Failed to query object: ${error.message}`);
