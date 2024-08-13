@@ -687,7 +687,7 @@ req.session.email = email;
 	}
   }
   
-  async function getPlacesOfInterest(){
+  async function getPlacesOfInterest(req, res){
 
 	  console.log("Getting places of interest from DB");
 	
@@ -767,13 +767,19 @@ req.session.email = email;
 						console.log(places_of_interest_list);
 				for (let place_of_interest of places_of_interest_list) {
 					console.log(place_of_interest.get("name"));
+
+
+					res.status(200).json(places_of_interest_list);
+						res.render('pages/placesofinterestlist', {
+							placesOfInterest: places_of_interest_list
+						});
 				}
 				} catch (error) {
 		      console.log(`Failed to query object: ${error.message}`);
 		      return false;
 		    }
 			  
-
+			
 				/*await query.get("BKR9IyCiaz").then(function(place_of_interest){
 					
 					//console.log(setQueryResults(places_of_interest));
@@ -781,14 +787,7 @@ req.session.email = email;
 
 			  }).catch(function(error){
 				   console.log('Error: ' + error.message);
-			  });*/
-
-
-
-
-
-
-			  
+			  });*/		  
   }
 	
 	
