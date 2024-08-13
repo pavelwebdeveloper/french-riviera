@@ -769,7 +769,7 @@ req.session.email = email;
 					console.log(place_of_interest.get("name"));
 				}
 
-					res.status(200).json(places_of_interest_list);
+					
 						res.render('pages/placesofinterestlist', {
 							placesOfInterest: places_of_interest_list
 						});
