@@ -758,15 +758,15 @@ req.session.email = email;
 
 			  //query.descending('name');
 
-			  let objectType = "place_of_interest";
+			  //let objectType = "place_of_interest";
 
 			  try {
 			  const places_of_interest_list = await places_of_interest.find();
-			  places_of_interest.equalTo("place_of_interest", objectType);
-      for (let place_of_interest of places_of_interest_list) {
-        console.log(place_of_interest.get("name"));
-      }
-	} catch (error) {
+						//places_of_interest.equalTo("place_of_interest", objectType);
+				for (let place_of_interest of places_of_interest_list) {
+					console.log(place_of_interest.get("name"));
+				}
+				} catch (error) {
 		      console.log(`Failed to query object: ${error.message}`);
 		      return false;
 		    }
