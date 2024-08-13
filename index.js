@@ -763,6 +763,8 @@ req.session.email = email;
 			  try {
 			  const places_of_interest_list = await places_of_interest.find();
 						//places_of_interest.equalTo("place_of_interest", objectType);
+						console.log("Here is places of interest list:");
+						console.log(places_of_interest_list);
 				for (let place_of_interest of places_of_interest_list) {
 					console.log(place_of_interest.get("name"));
 				}
