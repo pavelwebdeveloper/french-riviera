@@ -792,13 +792,13 @@ req.session.email = email;
 	
 	
 	
-	function getPlaceOfInterestDetails(req, res){
+	async function getPlaceOfInterestDetails(req, res){
 	  console.log("Getting place of interest from DB");
 	
 	// This runs the query, and then calls the provided anonymous callback function
 	// with the results.
   //db.sqlDb().query('SELECT * FROM placesofinterest WHERE placeOfInterestId=' + req.query.id + '', function(err, result) {
-	Parse.Query('SELECT * FROM placesofinterest WHERE placeOfInterestId=' + req.query.id + '', function(err, data) {
+	/*Parse.Query('SELECT * FROM placesofinterest WHERE placeOfInterestId=' + req.query.id + '', function(err, data) {
       if (err) {
         return console.error('error running query', err);
       }
@@ -819,7 +819,19 @@ req.session.email = email;
     });
 	
 	//callback(null, result.rows);
-    });
+    });*/
+
+	const query = new Parse.Query("Place_of_interest");
+
+				await query.get(req.query.id).then(function(place_of_interest){
+					console.log('Place of interest retrieved successfully with name: ' + place_of_interest.get("name") + ' and description: ' + place_of_interest.get("description"));
+
+					res.render('pages/placeofinterest', {
+						place_of_interest: place_of_interest
+					});
+			  }).catch(function(error){
+				   console.log('Error: ' + error.message);
+			  });
 	  	
   }
   
