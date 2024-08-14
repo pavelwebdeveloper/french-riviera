@@ -822,6 +822,8 @@ req.session.email = email;
     });*/
 
 	const query = new Parse.Query("Place_of_interest");
+	console.log("Here is the req.query.id: " + req.query.id);
+	console.log(req.query.id);
 
 				await query.get(req.query.id).then(function(place_of_interest){
 					console.log('Place of interest retrieved successfully with name: ' + place_of_interest.get("name") + ' and description: ' + place_of_interest.get("description"));
