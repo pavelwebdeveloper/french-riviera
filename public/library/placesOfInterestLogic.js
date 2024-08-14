@@ -17,6 +17,8 @@ function getPlacesOfInterest() {
 
 
 function getPlaceOfInterestDetails(id) {
+  console.log("Here is the id inside getPlaceOfInterestDetails: " + id);
+	console.log(req.query.id);
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -24,7 +26,7 @@ function getPlaceOfInterestDetails(id) {
       document.getElementById("change1").innerHTML = this.responseText;
     }
   };
-  xhttp.open("GET", "/placeofinterestdetails?id=" + id, true);
+  xhttp.open("GET", "/showplaceofinterestdetails?id=" + id, true);
   xhttp.send();
 }
 

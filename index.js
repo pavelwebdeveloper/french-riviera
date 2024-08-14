@@ -72,7 +72,7 @@ app
   // placesofinterest page
   //.get('/placesofinterest', (req, res) => res.render('pages/placesofinterest'))
   .get('/placesofinterest', getPlacesOfInterest)
-  .get('/placeofinterestdetails', getPlaceOfInterestDetails)
+  .get('/showplaceofinterestdetails', getAndShowPlaceOfInterestDetails)
   
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
   
@@ -792,7 +792,7 @@ req.session.email = email;
 	
 	
 	
-	async function getPlaceOfInterestDetails(req, res){
+	async function getAndShowPlaceOfInterestDetails(req, res){
 	  console.log("Getting place of interest from DB");
 	
 	// This runs the query, and then calls the provided anonymous callback function
@@ -822,7 +822,7 @@ req.session.email = email;
     });*/
 
 	const query = new Parse.Query("Place_of_interest");
-	console.log("Here is the req.query.id: " + req.query.id);
+	console.log("Here is the req.query.id inside getAndShowPlaceOfInterestDetails: " + req.query.id);
 	console.log(req.query.id);
 
 				await query.get(req.query.id).then(function(place_of_interest){
