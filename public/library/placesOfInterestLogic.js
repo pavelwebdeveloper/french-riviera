@@ -16,8 +16,8 @@ function getPlacesOfInterest() {
 
 
 
-function getPlaceOfInterestDetails() {
-  let id = document.getElementById("id").getAttribute("value");
+function getPlaceOfInterestDetails(id) {
+  //let id = document.getElementById("id").getAttribute("value");
   console.log("Here is the id inside getPlaceOfInterestDetails: " + id);
 	console.log(id);
   var xhttp = new XMLHttpRequest();
