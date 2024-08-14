@@ -16,9 +16,10 @@ function getPlacesOfInterest() {
 
 
 
-function getPlaceOfInterestDetails(id) {
+function getPlaceOfInterestDetails() {
+  let id = document.getElementById("id").innerHTML;
   console.log("Here is the id inside getPlaceOfInterestDetails: " + id);
-	console.log(req.query.id);
+	console.log(id);
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
