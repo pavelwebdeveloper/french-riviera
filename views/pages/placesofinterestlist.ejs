@@ -3,5 +3,5 @@
 
     <% places_of_interest_list.forEach(function(placeOfInterest) { %>
         <section class="generalplaceofinterest"><div><img src="<%= placeOfInterest.get('image') %>" class="placeofinterestimage"></div><div class="placesOfInterestItemList"><h2><%= placeOfInterest.get("name") %></h2>
-            <input type="hidden" name="id" pattern="[0-9]{1,}" id="id" value="<%= placeOfInterest.id %>"><button type="button" class="btn btn-success getDetailsButton" onclick="getPlaceOfInterestDetails(<%= placeOfInterest.id %>)">Get details</button></div></section>	
+            <input type="hidden" name="id" pattern="[0-9]{1,}" id="id" value="<%= placeOfInterest.id %>"><button type="button" class="btn btn-success getDetailsButton" onclick="getPlaceOfInterestDetails()">Get details</button></div></section>	
     <% }); %>
