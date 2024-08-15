@@ -182,7 +182,7 @@ p{
 /*}*/
 
 
-@media only screen and (min-width: 70em) {
+@media only screen and (min-width: 60em) {
 	a:hover {
 cursor: pointer;	
 }
@@ -258,8 +258,14 @@ button {
 	section.generalplaceofinterest {
 		
 		flex-direction: row;
+		justify-content: flex-start;
 		
 	}
+
+	.placesOfInterestItemList{
+		margin-left: 1em;
+	}
+
 	img.placeofinterestimage {
 		width: 600px;
 	}
