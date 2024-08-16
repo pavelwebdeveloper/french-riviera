@@ -16,6 +16,10 @@ p{
 	overflow: hidden;
 }
 
+.place-of-interest-name{
+	text-align: center;
+}
+
 @media only screen and (min-width: 60em) {
 		.float-image{
 		max-width: 50%;
@@ -182,7 +186,7 @@ p{
 /*}*/
 
 
-@media only screen and (min-width: 80em) {
+@media only screen and (min-width: 75em) {
 	a:hover {
 cursor: pointer;	
 }
