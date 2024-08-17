@@ -16,7 +16,7 @@ p{
 	overflow: hidden;
 }
 
-.place-of-interest-name{
+.place-of-interest-name, .image-attribution{
 	text-align: center;
 }
 
