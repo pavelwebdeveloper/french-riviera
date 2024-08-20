@@ -1,6 +1,6 @@
 <h2 class="place-of-interest-name"><%= place_of_interest.get('name') %></h2>
 
 
-        <section class="generalplaceofinterest"><p class="information"><img class="float-image" src="<%= place_of_interest.get('image') %>" class="placeofinterestimage">
-		<b>Description:</b> <%= place_of_interest.get('description') %><br>
-		</p></section>
+        <div class="generalplaceofinterest"><div class="information"><img class="float-image" src="<%= place_of_interest.get('image') %>" class="placeofinterestimage">
+			<div class="image-attribution"><a target="_blank" href="<%= place_of_interest.get('imageWikipediaLink') %>">Photo of <%= place_of_interest.get('name') %> from Wikipedia</a></div></div><b>Description:</b> <%= place_of_interest.get('description') %><br>
+		</div></div>
