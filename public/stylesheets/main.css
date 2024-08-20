@@ -20,6 +20,10 @@ p{
 	text-align: center;
 }
 
+.information{
+	font-size: 1.3em;
+}
+
 @media only screen and (min-width: 60em) {
 		.float-image{
 		max-width: 50%;
