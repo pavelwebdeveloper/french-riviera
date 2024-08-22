@@ -127,7 +127,7 @@ app
 		console.log("Add Place of Interest Info:");
 		console.log(req.body.jsonstring);
 		var obj = JSON.parse(req.body.jsonstring);
-		if(!obj.placeofinterestname || !obj.placeofinterestdescription || !obj.image) {
+		if(!obj.placeofinterestname || !obj.placeofinterestdescription || !obj.image || !obj.imagewikipedialink) {
 			infomessage = "Please, provide all the required information.";
 				res.render('pages/add_place_of_interest_page', {
 				infomessage: infomessage
@@ -170,6 +170,7 @@ app
 		placeOfInterest.set("name", obj.placeofinterestname);
 		placeOfInterest.set("description", obj.placeofinterestdescription);
 		placeOfInterest.set("image", obj.image);
+		placeOfInterest.set("imageWikipediaLink", obj.imagewikipedialink);
 
 		placeOfInterest.save().then(function(place_of_interest){
 			console.log('Pet created successful with name: ' + place_of_interest.get("name") + ' and description: ' + place_of_interest.get("description"));
