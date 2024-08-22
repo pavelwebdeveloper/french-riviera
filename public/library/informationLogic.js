@@ -13,3 +13,9 @@ function getToInformation(informationKind){
   xhttp.send();
 }
 
+function displayCurrentYear(){
+  const date = new Date();
+  document.getElementById("js-currentYear").innerHTML = date.getFullYear();
+}
+
+
