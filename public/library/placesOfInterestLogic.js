@@ -60,7 +60,7 @@ var xhttp = new XMLHttpRequest();
 var placeofinterestname = document.getElementById("placeOfInterestName").value;
   var placeofinterestdescription = document.getElementById("placeOfInterestDescription").value;
   var image = document.getElementById("placeOfInterestImage").value;
-  var image = document.getElementById("imageWikipediaLink").value;
+  var imagewikipedialink = document.getElementById("imageWikipediaLink").value;
 	var myobj = { "placeofinterestname":placeofinterestname,"placeofinterestdescription":placeofinterestdescription, 
 	"image":image, "imagewikipedialink": imagewikipedialink};
 var jsonstring = JSON.stringify( myobj );
