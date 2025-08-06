@@ -1,3 +1,4 @@
+
 // Get the button by id:
 let scrollToTopButton = document.getElementById("scrollToTopButton");
 
