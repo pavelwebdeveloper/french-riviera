@@ -7,7 +7,7 @@ function manageAccount(){
 var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "/manageaccount", true);
@@ -18,7 +18,7 @@ function getManageAccountForm(){
 var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "/getmanageaccountform", true);
@@ -35,7 +35,7 @@ var jsonstring = JSON.stringify( myobj );
 var postjson = "jsonstring="+encodeURIComponent( jsonstring );
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
     }
   };
   xhttp.open("PUT", "/updateaccountinfo", true);
@@ -52,7 +52,7 @@ var jsonstring = JSON.stringify( myobj );
 var postjson = "jsonstring="+encodeURIComponent( jsonstring );
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
 	  
     }
   };

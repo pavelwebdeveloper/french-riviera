@@ -1,7 +1,8 @@
 // index.js for travel-in-ukraine-app
 // load the things we need
 
-require('dotenv').config();
+
+	require('dotenv').config();
 const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 3000
@@ -75,6 +76,8 @@ app
   .get('/showplaceofinterestdetails', getAndShowPlaceOfInterestDetails)
   
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
+
   
   function goToInformation(req, res){
 		res.render('pages/mainpage')	  

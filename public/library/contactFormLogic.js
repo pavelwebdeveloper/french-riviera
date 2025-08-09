@@ -6,7 +6,7 @@ function getContactForm() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "/getcontactform", true);
@@ -25,7 +25,7 @@ var postjson2 = "jsonstring2="+encodeURIComponent( jsonstring2 );
 var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
     }
   };
   xhttp.open("POST", "/contactinfo", true);

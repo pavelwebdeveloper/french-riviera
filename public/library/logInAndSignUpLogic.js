@@ -16,7 +16,7 @@ function getSignUpForm() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "/getsignupform", true);
@@ -27,7 +27,7 @@ function getLogInForm() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "/getloginform", true);
@@ -43,7 +43,7 @@ var jsonstring = JSON.stringify( myobj );
 var postjson = "jsonstring="+encodeURIComponent( jsonstring );
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
 	  getLogNav();
     }
   };
@@ -62,7 +62,7 @@ var jsonstring = JSON.stringify( myobj );
 var postjson = "jsonstring="+encodeURIComponent( jsonstring );
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
 	  
     }
   };
@@ -77,7 +77,7 @@ console.log("logOut is working     !!!!!!!!!!!!!!!!!!!!!!!!!!!!          !!!!!!!
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("change").innerHTML = this.responseText;
+      document.getElementById("body").innerHTML = this.responseText;
 	  getLogNav();
     }
   };

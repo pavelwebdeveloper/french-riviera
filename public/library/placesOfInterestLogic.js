@@ -4,7 +4,7 @@ function getPlacesOfInterest() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
     }
   };
   //xhttp.open("GET", "/placesofinterestlist", true);
@@ -22,7 +22,7 @@ function getPlaceOfInterestDetails(id) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
 	console.log(this.responseText);
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "/showplaceofinterestdetails?id=" + id, true);
@@ -34,7 +34,7 @@ var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
 	console.log(this.responseText);
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "/getmanageplacesofinterestpage", true);
@@ -46,7 +46,7 @@ var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
 	console.log(this.responseText);
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "/getaddplaceofinterestpage", true);
@@ -66,7 +66,7 @@ var postjson = "jsonstring="+encodeURIComponent( jsonstring );
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
 	console.log(this.responseText);
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
     }
   };
   xhttp.open("POST", "/addplaceofinterest", true);
@@ -79,7 +79,7 @@ var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
 	console.log(this.responseText);
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "/getupdateplaceofinterestpage?id=" + id, true);
@@ -107,7 +107,7 @@ var postjson = "jsonstring="+encodeURIComponent( jsonstring );
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
 	console.log(this.responseText);
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
     }
   };
   xhttp.open("POST", "/updateplaceofinterest", true);
@@ -120,7 +120,7 @@ var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
 	console.log(this.responseText);
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "/getdeleteplaceofinterestpage?id=" + id, true);
@@ -132,7 +132,7 @@ var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
 	console.log(this.responseText);
-      document.getElementById("change1").innerHTML = this.responseText;
+      document.getElementById("mainDiv").innerHTML = this.responseText;
     }
   };
   xhttp.open("GET", "/deleteplaceofinterest?id=" + id, true);
