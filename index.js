@@ -15,7 +15,7 @@ const app = express();
 
 // Connect to Back4App
 var Parse = require('parse/node');
-Parse.initialize("bTZ3R4qULY67mdmKseZ7yIc0nk6vdTSdM4wNSUtz","cCxPMw2PKy5IddR5syXz4hwsncLNUyCifqGcVw49"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
+Parse.initialize("rV3kisb9A9Z2PdGk9hIZtTNPKLazmBQLQ4oCS1MJ","1FcZFdwg3TXkNMoG2Q68BlK36U1dYpAeCY0RBLYt"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
 Parse.serverURL = 'https://parseapi.back4app.com/'
 
 
@@ -694,7 +694,7 @@ req.session.email = email;
   async function getPlacesOfInterest(req, res){
 
 	  console.log("Getting places of interest from DB line 696");
-	
+
 		// This runs the query, and then calls the provided anonymous callback function
 		// with the results.
 		/*db.query('SELECT * FROM placesofinterest', function(err, result) {
