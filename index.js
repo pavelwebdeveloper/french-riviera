@@ -693,7 +693,7 @@ req.session.email = email;
   
   async function getPlacesOfInterest(req, res){
 
-	  console.log("Getting places of interest from DB");
+	  console.log("Getting places of interest from DB line 696");
 	
 		// This runs the query, and then calls the provided anonymous callback function
 		// with the results.
