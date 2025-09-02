@@ -15,7 +15,7 @@ const app = express();
 
 // Connect to Back4App
 var Parse = require('parse/node');
-Parse.initialize("rV3kisb9A9Z2PdGk9hIZtTNPKLazmBQLQ4oCS1MJ","1FcZFdwg3TXkNMoG2Q68BlK36U1dYpAeCY0RBLYt"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
+Parse.initialize("q7uXff38J8QZHaw5oAcTOGSRVNGdsUFs6aVjA9VD","YD5q0DWZpHpE4CyYbwdhdk1jPmUlaRH59qOJQsVi"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
 Parse.serverURL = 'https://parseapi.back4app.com/'
 
 
