@@ -758,13 +758,17 @@ req.session.email = email;
 				   console.log('Error: ' + error.message);
 			  });*/
 
-			  const places_of_interest = new Parse.Query("Place_of_interest");
+			  //const places_of_interest = new Parse.Query("Place_of_interest");
+
+			  var Place_of_interest = Parse.Object.extend("Place_of_interest");
+
+			  read();
 
 			  //query.descending('name');
 
 			  //let objectType = "place_of_interest";
 
-			  try {
+			  /*try {
 			  const places_of_interest_list = await places_of_interest.find();
 						//places_of_interest.equalTo("place_of_interest", objectType);
 						console.log("Here is places of interest list:");
@@ -781,7 +785,7 @@ req.session.email = email;
 				} catch (error) {
 		      console.log(`Failed to query object: ${error.message}`);
 		      return false;
-		    }
+		    }*/
 			  
 			
 				/*await query.get("BKR9IyCiaz").then(function(place_of_interest){
@@ -870,3 +874,39 @@ req.session.email = email;
 		   console.log('Error: ' + error.message);
 	  });
 	  } 
+
+	  
+
+async function read() {
+    query = new Parse.Query(Place_of_interest);
+
+	
+	try {
+		const places_of_interest_list = await query.find();
+				  //places_of_interest.equalTo("place_of_interest", objectType);
+				  console.log("Here is places of interest list:");
+				  console.log(places_of_interest_list);
+		  for (let place_of_interest of places_of_interest_list) {
+			  console.log(place_of_interest.get("name"));
+		  }
+
+			  
+				  res.render('pages/placesofinterestlist', {
+					  places_of_interest_list: places_of_interest_list
+				  });
+		  
+		  } catch (error) {
+		console.log(`Failed to query object: ${error.message}`);
+		return false;
+	  }
+    /*query.equalTo("name", textName);
+    query.first().then(function(pet){
+        if(pet){
+           console.log('Pet found successful with name: ' + pet.get("name") + ' and age: ' + pet.get("agePet"));
+        } else {
+           console.log("Nothing found, please try again");
+        }
+    }).catch(function(error){
+        console.log("Error: " + error.code + " " + error.message);       
+    });*/
+}
