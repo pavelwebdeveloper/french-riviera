@@ -1,7 +1,8 @@
 <h2 id="main" class="place-of-interest-name">Places to visit</h2>
 
-
-    <% places_of_interest_list.forEach(function(placeOfInterest) { %>
-        <section class="generalplaceofinterest"><div><img src="<%= placeOfInterest.get('image') %>" class="placeofinterestimage"></div><div class="placesOfInterestItemList"><div><h2><%= placeOfInterest.get("name") %></h2></div>
+<% console.log("On ejs !!!!!!!!!!"); %>
+<% console.log(placesOfInterest); %>
+    <% placesOfInterest.forEach(placeOfInterest => { %>
+        <section class="generalplaceofinterest"><div><img src="<%= placeOfInterest.image %>" class="placeofinterestimage"></div><div class="placesOfInterestItemList"><div><h2><%= placeOfInterest.name %></h2></div>
             <div><input type="hidden" name="id" pattern="[0-9]{1,}" id="id" value="<%= placeOfInterest.id %>"><a href="#topofpage"><button type="button" class="btn btn-success getDetailsButton" onclick="getPlaceOfInterestDetails('<%= placeOfInterest.id %>')">Get details</button></a></div></div></section>	
     <% }); %>

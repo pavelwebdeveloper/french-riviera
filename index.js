@@ -16,7 +16,7 @@ const app = express();
 // Connect to Back4App
 var Parse = require('parse/node');
 Parse.initialize("q7uXff38J8QZHaw5oAcTOGSRVNGdsUFs6aVjA9VD","YD5q0DWZpHpE4CyYbwdhdk1jPmUlaRH59qOJQsVi"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
-Parse.serverURL = 'https://parseapi.back4app.com/'
+Parse.serverURL = 'https://parseapi.back4app.com/classes/place_of_interest'
 
 
 
@@ -693,8 +693,16 @@ req.session.email = email;
   
   async function getPlacesOfInterest(req, res){
 
-	  console.log("Getting places of interest from DB line 696");
+	  	const data = require('./db/places_of_interest_data.json');
+		console.log(data.places_of_interest);
 
+		res.render('pages/placesofinterestlist', {
+			placesOfInterest: data.places_of_interest
+		});
+
+
+
+	  
 		// This runs the query, and then calls the provided anonymous callback function
 		// with the results.
 		/*db.query('SELECT * FROM placesofinterest', function(err, result) {
@@ -736,72 +744,20 @@ req.session.email = email;
 				placesOfInterest: placesOfInterest
 			});*/
 		//});
-		//try {
-				//Query the soccerPlayers object using the objectId you've copied
-				//query.get();
-				//access each object property using the get method
-				/*const name = player.get("namePlayer");
-				const email = player.get("emailContact");
-				const birth = player.get("yearOfBirth");
-				const attributes = player.get("attributes");
-			
-				alert(`Name: ${name}, email: ${email}, birth: ${birth}, attributes: ${attributes}`);
-				} catch (error) {
-				alert(`Failed to retrieve the object, with error code: ${error.message}`);*/
-				//}
-
-				//const query = new Parse.Query("Place_of_interest");
-
-				/*await query.get("BKR9IyCiaz").then(function(place_of_interest){
-					console.log('Place of interest retrieved successfully with name: ' + place_of_interest.get("name") + ' and description: ' + place_of_interest.get("description"));
-			  }).catch(function(error){
-				   console.log('Error: ' + error.message);
-			  });*/
-
-			  //const places_of_interest = new Parse.Query("Place_of_interest");
-
-			  var Place_of_interest = Parse.Object.extend("Place_of_interest");
-
-			  read();
-
-			  //query.descending('name');
-
-			  //let objectType = "place_of_interest";
-
-			  /*try {
-			  const places_of_interest_list = await places_of_interest.find();
-						//places_of_interest.equalTo("place_of_interest", objectType);
-						console.log("Here is places of interest list:");
-						console.log(places_of_interest_list);
-				for (let place_of_interest of places_of_interest_list) {
-					console.log(place_of_interest.get("name"));
-				}
-
-					
-						res.render('pages/placesofinterestlist', {
-							places_of_interest_list: places_of_interest_list
-						});
-				
-				} catch (error) {
-		      console.log(`Failed to query object: ${error.message}`);
-		      return false;
-		    }*/
-			  
-			
-				/*await query.get("BKR9IyCiaz").then(function(place_of_interest){
-					
-					//console.log(setQueryResults(places_of_interest));
-					console.log(place_of_interest);
-
-			  }).catch(function(error){
-				   console.log('Error: ' + error.message);
-			  });*/		  
+					  
   }
 	
 	
 	
 	async function getAndShowPlaceOfInterestDetails(req, res){
 	  console.log("Getting place of interest from DB");
+
+	  const data = require('./db/places_of_interest_data.json');
+		console.log(data.places_of_interest[req.query.id]);
+
+		res.render('pages/placeofinterest', {
+			placeOfInterest: data.places_of_interest[req.query.id]
+		});
 	
 	// This runs the query, and then calls the provided anonymous callback function
 	// with the results.
@@ -829,27 +785,9 @@ req.session.email = email;
 	//callback(null, result.rows);
     });*/
 
-	const query = new Parse.Query("Place_of_interest");
-	console.log("Here is the req.query.id inside getAndShowPlaceOfInterestDetails: " + req.query.id);
-	console.log(req.query.id);
-
-				await query.get(req.query.id).then(function(place_of_interest){
-					console.log('Place of interest retrieved successfully with name: ' + place_of_interest.get("name") + ' and description: ' + place_of_interest.get("description"));
-
-					res.render('pages/placeofinterest', {
-						place_of_interest: place_of_interest
-					});
-			  }).catch(function(error){
-				   console.log('Error: ' + error.message);
-			  });
 	  	
   }
-  
-  
-  function getPlacesOfInterestFromDb(callback) {
-	
-  }
-  
+   
   // cd cs313-node/travel_in_ukraine_app
 
 
@@ -873,40 +811,4 @@ req.session.email = email;
 	  }).catch(function(error){
 		   console.log('Error: ' + error.message);
 	  });
-	  } 
-
-	  
-
-async function read() {
-    query = new Parse.Query(Place_of_interest);
-
-	
-	try {
-		const places_of_interest_list = await query.find();
-				  //places_of_interest.equalTo("place_of_interest", objectType);
-				  console.log("Here is places of interest list:");
-				  console.log(places_of_interest_list);
-		  for (let place_of_interest of places_of_interest_list) {
-			  console.log(place_of_interest.get("name"));
-		  }
-
-			  
-				  res.render('pages/placesofinterestlist', {
-					  places_of_interest_list: places_of_interest_list
-				  });
-		  
-		  } catch (error) {
-		console.log(`Failed to query object: ${error.message}`);
-		return false;
-	  }
-    /*query.equalTo("name", textName);
-    query.first().then(function(pet){
-        if(pet){
-           console.log('Pet found successful with name: ' + pet.get("name") + ' and age: ' + pet.get("agePet"));
-        } else {
-           console.log("Nothing found, please try again");
-        }
-    }).catch(function(error){
-        console.log("Error: " + error.code + " " + error.message);       
-    });*/
-}
+} 
