@@ -45,6 +45,8 @@ app
   .use(myParser.urlencoded({extended : true}))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
+
+  .engine('ejs', require('ejs').__express)
   // index2 page
   .get('/gotoinformation', goToInformation)
   .get('/', (req, res) => res.render('pages/index2'))
