@@ -65,6 +65,10 @@
 	width: 8em;
 }
 
+a{
+	cursor: pointer;
+}
+
 p{
 	overflow: hidden;
 }
@@ -130,7 +134,7 @@ p{
 
 
 .header-menu-link:hover{
-	background-color: #e7e7e7;
+	background-color: #e7e7e7 !important;
 	z-index: 1;
 }
 
@@ -387,3 +391,14 @@ button {
   #scrollToTopButton:hover {
 	background-color: #42ca4f; /* Add a light-green background on hover */
   }
+
+  /* Tooltip for the map link in the header */
+
+  /* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
